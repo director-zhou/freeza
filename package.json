@@ -1,12 +1,11 @@
 {
-  "name": "tool-man",
-  "version": "1.0.0",
+  "name": "freeza",
   "private": true,
   "type": "module",
   "workspaces": [
     "packages/*"
   ],
-  "description": "",
+  "description": "Pluggable development mode of background management system",
   "main": "index.js",
   "scripts": {
     "watch-v3-layout": "node ./script/buildLayout.js",
@@ -21,6 +20,14 @@
     "prettier": "^2.5.1",
     "vite": "^2.7.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/director-zhou/freeza.git"
+  },
+  "bugs": {
+    "url": "https://github.com/director-zhou/freeza/issues"
+  },
+  "homepage": "https://github.com/director-zhou/freeza#readme",
   "author": "zhouzhixiang",
   "license": "ISC"
 }

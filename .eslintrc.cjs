@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 2017,
     sourceType: 'module'
   },
   rules: {

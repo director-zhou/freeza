@@ -1,11 +1,20 @@
 {
-  "name": "@tool-man/vue3-ant-layout",
+  "name": "@freeza/vue3-ant-layout",
   "version": "0.0.1",
   "description": "fast ui",
-  "esnext": "./dist/index.js",
-  "main": "./dist/index.js",
-  "files": ["dist"],
-  "keywords": ["vue3", "ui", "ant-design-vue", "layout"],
+  "esnext": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "main": "dist/index.cjs.js",
+  "unpkg": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue3",
+    "ui",
+    "ant-design-vue",
+    "layout"
+  ],
   "author": "zhouzhixiang",
   "license": "ISC",
   "peerDependencies": {
