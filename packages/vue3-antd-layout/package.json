@@ -1,9 +1,10 @@
 {
-  "name": "vue3-antd-layout",
-  "version": "1.0.0",
+  "name": "@tool-man/vue3-antd-layout",
+  "version": "0.0.0",
   "description": "",
   "esnext": "./dist/index.js",
   "main": "index.js",
+  "files": ["dist"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
