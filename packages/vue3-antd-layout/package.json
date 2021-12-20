@@ -1,0 +1,18 @@
+{
+  "name": "vue3-antd-layout",
+  "version": "1.0.0",
+  "description": "",
+  "esnext": "./dist/index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "^3.2.26",
+    "vue": "^3.2.26"
+  }
+}
