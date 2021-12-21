@@ -1,11 +1,9 @@
 {
   "name": "@freeza/vue3-ant-layout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "fast ui",
-  "esnext": "dist/index.es.js",
   "module": "dist/index.es.js",
   "main": "dist/index.cjs.js",
-  "unpkg": "dist/index.umd.js",
   "files": [
     "dist"
   ],
@@ -21,8 +19,9 @@
     "vue": "^3.2.26"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.0.1",
-    "@vue/compiler-sfc": "^3.2.26",
+    "@vitejs/plugin-vue": "^2.0.1"
+  },
+  "dependencies": {
     "vue": "^3.2.26"
   }
 }
