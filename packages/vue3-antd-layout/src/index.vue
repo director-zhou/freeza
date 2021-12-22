@@ -2,17 +2,7 @@
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
       <div class="logo">{{ config.b }}</div>
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
-          <span>nav 111111</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <span>nav 2111</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <span>nav 3</span>
-        </a-menu-item>
-      </a-menu>
+      <freeza-menu />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0" />
@@ -30,7 +20,8 @@
 
 <script>
 import { inject } from 'vue';
-import { Layout, Menu, Breadcrumb } from 'ant-design-vue';
+import FreezaMenu from './menu/index.vue';
+import { Layout, Breadcrumb } from 'ant-design-vue';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'AB',
@@ -41,15 +32,16 @@ export default defineComponent({
     [Layout.Content.name]: Layout.Content,
     [Layout.Footer.name]: Layout.Footer,
     [Breadcrumb.name]: Breadcrumb,
-    [Menu.name]: Menu,
-    [Menu.Item.name]: Menu.Item
+    FreezaMenu
   },
   setup() {
     const collapsed = ref(false);
-    const config = inject('config');
+    const config = inject('freezaConfig');
     return {
       collapsed,
-      config
+      config: config || {
+        title: 'freeza'
+      }
     };
   }
 });
