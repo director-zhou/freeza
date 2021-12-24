@@ -7,7 +7,7 @@ const args = minimist(process.argv.slice(2));
 const { watch, project } = args;
 
 async function startBuild(config) {
-  const { entry, formats, external } = config;
+  const { entry, formats, external, outputDir } = config;
   await build({
     plugins: [vue()],
     build: {
@@ -20,6 +20,9 @@ async function startBuild(config) {
         }
       },
       rollupOptions: {
+        output: {
+          dir: outputDir
+        },
         external
       }
     }
