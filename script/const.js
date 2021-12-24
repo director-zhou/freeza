@@ -4,7 +4,13 @@ const cwd = process.cwd();
 const projectList = [
   {
     pkg: 'vue3-ant-layout',
-    external: ['vue', /^ant-design-vue/],
+    external: ['vue', /^ant-design-vue/, 'vue-router'],
+    formats: ['es', 'cjs'],
+    entryFileName: 'index.js'
+  },
+  {
+    pkg: 'vue-router',
+    external: ['vue-router'],
     formats: ['es', 'cjs'],
     entryFileName: 'index.js'
   }

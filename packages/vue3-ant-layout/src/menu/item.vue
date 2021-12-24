@@ -4,13 +4,14 @@
       <template #title>{{ item.menuName }}</template>
       <FreezaMenuItem :menu-list="item.children" />
     </a-sub-menu>
-    <a-menu-item v-else :key="index"
+    <a-menu-item @click="goPageHandle(item)" v-else :key="index"
       ><span>{{ item.menuName }}</span></a-menu-item
     >
   </template>
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import { Menu } from 'ant-design-vue';
 import { defineComponent } from 'vue';
 export default defineComponent({
@@ -25,6 +26,14 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {}
+  setup() {
+    const router = useRouter();
+    const goPageHandle = menu => {
+      router.push(menu.menuPath);
+    };
+    return {
+      goPageHandle
+    };
+  }
 });
 </script>

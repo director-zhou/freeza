@@ -14,7 +14,7 @@ async function startBuild(config) {
       watch,
       lib: {
         entry,
-        formats,
+        formats: watch ? ['es'] : formats,
         fileName: module => {
           return `index.${module}.js`;
         }
@@ -31,9 +31,15 @@ async function startBuild(config) {
 
 if (project) {
   const config = configuration[project];
+  console.log(config);
   if (config) {
     startBuild(config);
   } else {
     console.log('请输入正确的项目名');
+  }
+} else {
+  const projectNameList = Object.keys(configuration);
+  for (let i = 0; i < projectNameList.length; i++) {
+    startBuild(configuration[projectNameList[i]]);
   }
 }
