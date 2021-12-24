@@ -1,8 +1,21 @@
 import path from 'path';
 const cwd = process.cwd();
 
-function buildPath(project) {
-  return path.resolve(cwd, 'packages', `${project}`, 'index.js');
-}
+const projectList = [
+  {
+    pkg: 'vue3-ant-layout',
+    external: ['vue', /^ant-design-vue/],
+    formats: ['es', 'cjs'],
+    entryFileName: 'index.js'
+  }
+];
 
-const projectList = ['vue3-ant-layout'];
+export const configuration = {};
+
+projectList.forEach(p => {
+  const { pkg, entryFileName } = p;
+  configuration[p.pkg] = {
+    ...p,
+    entry: path.resolve(cwd, 'packages', pkg, entryFileName)
+  };
+});

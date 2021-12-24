@@ -8,11 +8,13 @@
   "description": "Pluggable development mode of background management system",
   "main": "index.js",
   "scripts": {
+    "watch": "node ./script/build.js --watch",
     "build": "node ./script/build.js",
     "lint": "eslint --ext .js,.vue packages"
   },
   "keywords": [],
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
     "@vue/compiler-sfc": "^3.2.13",
     "ant-design-vue": "^3.0.0-alpha.14",
     "eslint": "^8.5.0",

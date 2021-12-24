@@ -3,9 +3,11 @@ module.exports = {
   env: {
     node: true
   },
+  requireConfigFile: false,
   extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:prettier/recommended'],
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   rules: {
