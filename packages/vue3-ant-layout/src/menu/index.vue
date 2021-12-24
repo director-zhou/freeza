@@ -15,8 +15,8 @@ export default defineComponent({
     FreezaMenuItem
   },
   setup() {
+    console.log(1);
     const freezaConfig = inject('freezaConfig');
-    console.log(freezaConfig.menuList);
     return {
       menuList: freezaConfig.menuList
     };
