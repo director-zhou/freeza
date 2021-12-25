@@ -4,15 +4,17 @@ const routes = [];
 
 function loopRoutes(list) {
   list.forEach(item => {
-    const { menuPath, menuDir, children } = item;
+    const { menuPath, children, menuComponent } = item;
     if (children && children.length > 0) {
       loopRoutes(children);
     } else {
-      if (menuPath && menuDir) {
-        routes.push({
-          path: menuPath,
-          component: () => import(`${_FREEZA_ROUTER_BASE_}/${menuDir}/index.vue`)
-        });
+      if (menuPath) {
+        if (menuComponent) {
+          routes.push({
+            path: menuPath,
+            component: menuComponent
+          });
+        }
       }
       if (!menuPath) {
         console.error(item);
@@ -22,7 +24,7 @@ function loopRoutes(list) {
 }
 
 export function registerRouter(params) {
-  const { menuList, base, module } = params;
+  const { menuList, base } = params;
   loopRoutes(menuList);
   const router = createRouter({
     history: createWebHistory(base),
