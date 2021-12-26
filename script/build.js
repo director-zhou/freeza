@@ -11,6 +11,7 @@ async function startBuild(config) {
   await build({
     plugins: [vue()],
     build: {
+      cssCodeSplit: true,
       watch,
       lib: {
         entry,

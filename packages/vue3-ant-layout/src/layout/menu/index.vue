@@ -1,5 +1,5 @@
 <template>
-  <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+  <a-menu class="freeza_menu" v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
     <FreezaMenuItem :menu-list="menuList" :goPageHandle="goPageHandle" />
   </a-menu>
 </template>
@@ -30,3 +30,10 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.freeza_menu {
+  height: calc(100vh - 112px);
+  overflow-y: scroll;
+}
+</style>

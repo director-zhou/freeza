@@ -21,10 +21,11 @@ function loopRoutes(list) {
       }
     }
   });
+  return routes;
 }
 
-export function registerRouter(params) {
-  const { menuList, base } = params;
+export function registerRouter(menuList, options = {}) {
+  let { base } = options;
   loopRoutes(menuList);
   const router = createRouter({
     history: createWebHistory(base),

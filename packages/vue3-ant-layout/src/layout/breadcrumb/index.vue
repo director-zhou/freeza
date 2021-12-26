@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb style="margin: 16px 0">
+  <a-breadcrumb>
     <a-breadcrumb-item v-for="(breadcrumb, index) in breadcrumbList" :key="index">{{ breadcrumb }}</a-breadcrumb-item>
   </a-breadcrumb>
 </template>
@@ -18,7 +18,6 @@ export default defineComponent({
     const route = useRoute();
     const config = inject('freezaConfig');
     const { flatMenu } = config;
-    console.log(config);
     const breadcrumbList = ref([]);
     watch(
       () => route.matched,
