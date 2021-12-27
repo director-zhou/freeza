@@ -22,9 +22,10 @@ export default defineComponent({
 .freeza_header {
   display: flex;
   align-items: center;
-  height: 60px;
   padding: 0 15px;
   background: #ffffff;
-  border-bottom: 1px solid #f0f2f5;
+  height: 53px;
+  line-height: 53px;
+  border-bottom: 1px solid #ddd;
 }
 </style>

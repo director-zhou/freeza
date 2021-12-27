@@ -2,17 +2,16 @@ import { registerRouter } from './resgister';
 
 function loopMenuList(menuList) {
   menuList.forEach(item => {
-    if (item.children && item.children.length > 0) {
+    const { menuDir, menuPath, children } = item;
+    if (children && children.length > 0) {
       loopMenuList(item.children);
     } else {
-      item.menuComponent = () => import(`/src/views${item.menuDir}/index.vue`);
+      item.menuComponent = () => import(`/src/views${menuPath || menuDir}/index.vue`);
     }
   });
 }
 
-export function webpackRegisterRouter({ menuList, module }, options) {
-  if (module) {
-    loopMenuList(menuList);
-  }
+export function webpackRegisterRouter(menuList, options) {
+  loopMenuList(menuList);
   return registerRouter(menuList, options);
 }

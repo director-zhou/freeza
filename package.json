@@ -8,7 +8,7 @@
   "description": "Pluggable development mode of background management system",
   "scripts": {
     "watch": "yarn build --watch",
-    "build": "yarn clear && node ./script/build.js",
+    "build": "node ./script/build.js",
     "lint": "eslint --ext .js,.vue packages",
     "clear": "rimraf ./packages/**/dist/**"
   },
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/eslint-parser": "^7.16.5",
+    "@rollup/plugin-image": "^2.1.1",
     "@vue/compiler-sfc": "^3.2.13",
     "ant-design-vue": "^3.0.0-alpha.14",
     "eslint": "^8.5.0",

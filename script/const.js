@@ -55,4 +55,4 @@ Object.keys(projectList).forEach(item => {
 
   configuration[item] = tranfrom;
 });
-console.log(configuration);
+// console.log(configuration);

@@ -1,6 +1,6 @@
 <template>
   <template v-for="(item, index) in menuList" :key="index">
-    <a-sub-menu v-if="item.children && item.children.length > 0">
+    <a-sub-menu v-if="item.children && item.children.length > 0" :key="item._FREEZA_SUBMENU_KEY_UUID_">
       <template #title>{{ item.menuName }}</template>
       <FreezaMenuItem :menu-list="item.children" :goPageHandle="goPageHandle" />
     </a-sub-menu>

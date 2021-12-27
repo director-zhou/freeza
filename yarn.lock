@@ -264,6 +264,23 @@
   resolved "https://registry.npmmirror.com/@humanwhocodes/object-schema/download/@humanwhocodes/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha1-tSBSnsIdjllFoYUd/Rwy6U45/0U=
 
+"@rollup/plugin-image@^2.1.1":
+  version "2.1.1"
+  resolved "http://npm.poizon.com/@rollup%2fplugin-image/-/plugin-image-2.1.1.tgz#898d6b59ac0025d7971ef45640ab330cb0663b0c"
+  integrity sha1-iY1rWawAJdeXHvRWQKszDLBmOww=
+  dependencies:
+    "@rollup/pluginutils" "^3.1.0"
+    mini-svg-data-uri "^1.2.3"
+
+"@rollup/pluginutils@^3.1.0":
+  version "3.1.0"
+  resolved "http://npm.poizon.com/@rollup%2fpluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
+  integrity sha1-cGtFJO5tyLEDs8mVUz5a1oDAK5s=
+  dependencies:
+    "@types/estree" "0.0.39"
+    estree-walker "^1.0.1"
+    picomatch "^2.2.2"
+
 "@rollup/pluginutils@^4.1.0":
   version "4.1.2"
   resolved "http://npm.poizon.com/@rollup%2fpluginutils/-/pluginutils-4.1.2.tgz#ed5821c15e5e05e32816f5fb9ec607cdf5a75751"
@@ -286,6 +303,11 @@
   integrity sha1-Z/qRJ1PYCXOgFudoSkf+3zOKrP8=
   dependencies:
     postcss "5 - 7"
+
+"@types/estree@0.0.39":
+  version "0.0.39"
+  resolved "http://npm.poizon.com/@types%2festree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+  integrity sha1-4Xfmme4bjCLSMXTKqnQiZEOJUJ8=
 
 "@types/lodash@^4.14.165":
   version "4.14.178"
@@ -1121,6 +1143,11 @@ estree-walker@^0.6.1:
   resolved "http://npm.poizon.com/estree-walker/-/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
   integrity sha1-UwSRQ/QMbrkYsjZx0f4yGfOhs2I=
 
+estree-walker@^1.0.1:
+  version "1.0.1"
+  resolved "http://npm.poizon.com/estree-walker/-/estree-walker-1.0.1.tgz#31bc5d612c96b704106b477e6dd5d8aa138cb700"
+  integrity sha1-MbxdYSyWtwQQa0d+bdXYqhOMtwA=
+
 estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmmirror.com/estree-walker/download/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
@@ -1666,6 +1693,11 @@ mime-types@^2.1.28:
   integrity sha1-WnEvnsFQNRGpRYA2QPr+CdN5PCQ=
   dependencies:
     mime-db "1.51.0"
+
+mini-svg-data-uri@^1.2.3:
+  version "1.4.3"
+  resolved "http://npm.poizon.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.3.tgz#43177b2e93766ba338931a3e2a84a3dfd3a222b8"
+  integrity sha1-Qxd7LpN2a6M4kxo+KoSj39OiIrg=
 
 minimatch@^3.0.4:
   version "3.0.4"

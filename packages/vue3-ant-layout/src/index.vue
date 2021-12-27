@@ -2,7 +2,7 @@
   <!-- <div></div> -->
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
-      <FreezaLogo />
+      <FreezaLogo :collapsed="collapsed" />
       <freeza-menu />
     </a-layout-sider>
     <a-layout class="freeza_container">
@@ -20,7 +20,9 @@
 </template>
 
 <script>
-import { inject, getCurrentInstance } from 'vue';
+import { getCurrentInstance } from 'vue';
+import { transformMenuList } from './utils/index';
+import { freezaConfig } from '../index.js';
 import { flatMenuFn } from './utils/index.js';
 import FreezaMenu from './layout/menu/index.vue';
 import FreezaBreadCrumb from './layout/breadcrumb/index.vue';
@@ -29,6 +31,7 @@ import FreezaFooter from './layout/footer/index.vue';
 import FreezaLogo from './layout/logo/index.vue';
 import { Layout } from 'ant-design-vue';
 import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
   name: 'FreezaIndex',
   components: {
@@ -42,14 +45,18 @@ export default defineComponent({
     FreezaLogo
   },
   setup() {
+    const { menuList = [] } = freezaConfig;
     const app = getCurrentInstance();
     const collapsed = ref(false);
-    const config = inject('freezaConfig') || {};
-    const flatMenu = flatMenuFn(config.menuList || []);
-    app.appContext.provides.freezaConfig.flatMenu = flatMenu;
+    transformMenuList(menuList);
+    const flatMenu = flatMenuFn(menuList);
+    app.appContext.provides.freezaConfig = {
+      flatMenu,
+      menuList: freezaConfig.menuList
+    };
+
     return {
-      collapsed,
-      config
+      collapsed
     };
   }
 });

@@ -22,8 +22,12 @@ export default defineComponent({
     watch(
       () => route.matched,
       value => {
-        const matchPath = value[0].path;
-        breadcrumbList.value = flatMenu[matchPath]._FREEZA_META_.menuFullName;
+        const matchPath = value.length > 0 && value[0].path;
+        if (matchPath === '/') {
+          breadcrumbList.value = ['首页'];
+        } else {
+          breadcrumbList.value = matchPath && flatMenu[matchPath] ? flatMenu[matchPath]._FREEZA_META_.menuFullName : [];
+        }
       }
     );
     return {
