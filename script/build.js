@@ -19,7 +19,8 @@ async function startBuild(config) {
     external
   };
   if (watch) {
-    rollupWatch({ ...inputOptions, output: [outputOptions] });
+    const watcher = rollupWatch({ ...inputOptions, output: [outputOptions] });
+    watcher.on('event', event => {});
   } else {
     const bundle = await rollup(inputOptions);
     await bundle.write(outputOptions);
