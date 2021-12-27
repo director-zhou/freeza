@@ -8,17 +8,10 @@ function loopRoutes(list) {
     if (children && children.length > 0) {
       loopRoutes(children);
     } else {
-      if (menuPath) {
-        if (menuComponent) {
-          routes.push({
-            path: menuPath,
-            component: menuComponent
-          });
-        }
-      }
-      if (!menuPath) {
-        console.error(item);
-      }
+      routes.push({
+        path: menuPath,
+        component: menuComponent
+      });
     }
   });
   return routes;

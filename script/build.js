@@ -1,46 +1,37 @@
-import { build } from 'vite';
 import minimist from 'minimist';
 import { configuration } from './const.js';
-import vue from '@vitejs/plugin-vue';
-
+import { rollup, watch as rollupWatch } from '../node_modules/rollup/dist/es/rollup.js';
+import styles from 'rollup-plugin-styles';
+import vuePlugin from 'rollup-plugin-vue';
 const args = minimist(process.argv.slice(2));
-const { watch, project } = args;
+const { project, watch } = args;
 
 async function startBuild(config) {
-  const { entry, formats, external, outputDir } = config;
-  await build({
-    plugins: [vue()],
-    build: {
-      cssCodeSplit: true,
-      watch,
-      lib: {
-        entry,
-        formats: watch ? ['es'] : formats,
-        fileName: module => {
-          return `index.${module}.js`;
-        }
-      },
-      rollupOptions: {
-        output: {
-          dir: outputDir
-        },
-        external
-      }
-    }
-  });
+  const { input, external, format, file } = config;
+  const outputOptions = {
+    format,
+    file,
+    ...(format === 'cjs' ? { exports: 'auto' } : {})
+  };
+  const inputOptions = {
+    input,
+    plugins: [vuePlugin(), styles()],
+    external
+  };
+  if (watch) {
+    rollupWatch({ ...inputOptions, output: [outputOptions] });
+  } else {
+    const bundle = await rollup(inputOptions);
+    await bundle.write(outputOptions);
+  }
 }
 
 if (project) {
-  const config = configuration[project];
-  console.log(config);
-  if (config) {
-    startBuild(config);
-  } else {
-    console.log('请输入正确的项目名');
-  }
 } else {
-  const projectNameList = Object.keys(configuration);
-  for (let i = 0; i < projectNameList.length; i++) {
-    startBuild(configuration[projectNameList[i]]);
-  }
+  Object.keys(configuration).forEach(item => {
+    const configList = configuration[item];
+    configList.forEach(item => {
+      startBuild(item);
+    });
+  });
 }

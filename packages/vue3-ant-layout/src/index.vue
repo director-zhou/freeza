@@ -1,4 +1,5 @@
 <template>
+  <!-- <div></div> -->
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
       <FreezaLogo />
