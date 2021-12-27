@@ -1,6 +1,6 @@
 import minimist from 'minimist';
 import { configuration } from './const.js';
-import { rollup, watch as rollupWatch } from '../node_modules/rollup/dist/es/rollup.js';
+import { rollup, watch as rollupWatch } from 'rollup';
 import styles from 'rollup-plugin-styles';
 import vuePlugin from 'rollup-plugin-vue';
 const args = minimist(process.argv.slice(2));
