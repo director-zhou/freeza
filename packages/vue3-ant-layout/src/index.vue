@@ -9,6 +9,7 @@
       <slot name="header">
         <freeza-header />
       </slot>
+      <FreezaTabs />
       <a-layout-content class="freeza-content">
         <router-view></router-view>
       </a-layout-content>
@@ -29,6 +30,7 @@ import FreezaBreadCrumb from './layout/breadcrumb/index.vue';
 import FreezaHeader from './layout/header/index.vue';
 import FreezaFooter from './layout/footer/index.vue';
 import FreezaLogo from './layout/logo/index.vue';
+import FreezaTabs from './layout/tab/index.vue';
 import { Layout } from 'ant-design-vue';
 import { defineComponent, ref } from 'vue';
 
@@ -42,7 +44,8 @@ export default defineComponent({
     FreezaFooter,
     FreezaBreadCrumb,
     FreezaHeader,
-    FreezaLogo
+    FreezaLogo,
+    FreezaTabs
   },
   setup() {
     const { menuList = [] } = freezaConfig;
