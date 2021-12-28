@@ -39,7 +39,7 @@ export default defineComponent({
 </script>
 
 <style>
-.freeza_header {
+.freeza_header.ant-layout-header {
   display: flex;
   align-items: center;
   padding: 0 15px;

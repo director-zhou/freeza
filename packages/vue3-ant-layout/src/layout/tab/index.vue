@@ -95,7 +95,7 @@ export default defineComponent({
 
 <style>
 .freeza_tabs .ant-tabs-nav {
-  margin: 0;
+  margin: 0 !important;
 }
 .freeza_tabs .ant-tabs-tab:first-child {
   display: none;

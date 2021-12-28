@@ -21,7 +21,7 @@
 <script>
 import { getCurrentInstance } from 'vue';
 import { transformMenuList } from './utils/index';
-import { freezaConfig } from '../index.js';
+import { freezaConfig } from './utils/cacheConfig.js';
 import { flatMenuFn } from './utils/index.js';
 import FreezaMenu from './layout/menu/index.vue';
 import FreezaBreadCrumb from './layout/breadcrumb/index.vue';

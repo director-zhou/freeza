@@ -8,7 +8,7 @@ const projectList = {
     entryFileName: 'index.js'
   },
   'vue-router': {
-    external: ['vue-router', 'import.meta.global'],
+    external: ['vue-router'],
     formats: ['es', 'cjs'],
     bundleList: {
       index: {

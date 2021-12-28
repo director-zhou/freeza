@@ -2,11 +2,11 @@ import Layout from './src/index.vue';
 import 'ant-design-vue/dist/antd.less';
 import Home from './src/page/home/index.vue';
 import NotFound from './src/page/404/index.vue';
+import { cacheConfig } from './src/utils/cacheConfig.js';
 
-let freezaConfig = null;
 function startLayout(config) {
   const { router, homeComponent } = config;
-  freezaConfig = config;
+  cacheConfig(config);
   router.addRoute({
     path: '/',
     component: homeComponent || Home
@@ -18,5 +18,3 @@ function startLayout(config) {
   return Layout;
 }
 export default startLayout;
-
-export { freezaConfig };

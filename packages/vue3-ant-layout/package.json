@@ -17,8 +17,5 @@
   "license": "ISC",
   "peerDependencies": {
     "vue": "^3.2.26"
-  },
-  "devDependencies": {
-    "vue": "^3.2.13"
   }
 }

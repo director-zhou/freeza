@@ -4,6 +4,8 @@ import { rollup, watch as rollupWatch } from 'rollup';
 import styles from 'rollup-plugin-styles';
 import vuePlugin from 'rollup-plugin-vue';
 import image from '@rollup/plugin-image';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 const args = minimist(process.argv.slice(2));
 const { project, watch } = args;
 
@@ -11,7 +13,7 @@ async function startBuild(config) {
   const { input, external, format, file } = config;
   const inputOptions = {
     input,
-    plugins: [vuePlugin(), styles(), image()],
+    plugins: [vuePlugin(), styles(), image(), nodeResolve(), commonjs()],
     external
   };
   const outputOptions = {

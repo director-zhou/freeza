@@ -1,17 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 const routes = [];
 
 function loopRoutes(list) {
   list.forEach(item => {
-    const { menuPath, children, menuComponent } = item;
+    const { menuPath, children, menuComponent, menuMicro } = item;
     if (children && children.length > 0) {
       loopRoutes(children);
     } else {
-      routes.push({
-        path: menuPath,
-        component: menuComponent
-      });
+      if (!menuMicro) {
+        routes.push({
+          path: menuPath,
+          component: menuComponent
+        });
+      }
     }
   });
   return routes;
@@ -23,6 +26,12 @@ export function registerRouter(menuList, options = {}) {
   const router = createRouter({
     history: createWebHistory(base),
     routes
+  });
+  router.beforeEach(() => {
+    NProgress.start();
+  });
+  router.afterEach(() => {
+    NProgress.done();
   });
   return router;
 }

@@ -7,7 +7,7 @@
   ],
   "description": "Pluggable development mode of background management system",
   "scripts": {
-    "watch": "yarn build --watch",
+    "watch": "yarn clear && yarn build --watch",
     "build": "node ./script/build.js",
     "lint": "eslint --ext .js,.vue packages",
     "clear": "rimraf ./packages/**/dist/**"
@@ -16,7 +16,9 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/eslint-parser": "^7.16.5",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-image": "^2.1.1",
+    "@rollup/plugin-node-resolve": "^13.1.1",
     "@vue/compiler-sfc": "^3.2.13",
     "ant-design-vue": "^3.0.0-alpha.14",
     "eslint": "^8.5.0",
@@ -28,8 +30,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.62.0",
     "rollup-plugin-styles": "^3.14.1",
-    "rollup-plugin-vue": "^6.0.0",
-    "vue": "^3.2.13"
+    "rollup-plugin-vue": "^6.0.0"
   },
   "repository": {
     "type": "git",
