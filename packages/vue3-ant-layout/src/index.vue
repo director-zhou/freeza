@@ -1,14 +1,12 @@
 <template>
   <!-- <div></div> -->
   <a-layout style="min-height: 100vh">
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed">
       <FreezaLogo :collapsed="collapsed" />
       <freeza-menu />
     </a-layout-sider>
     <a-layout class="freeza_container">
-      <slot name="header">
-        <freeza-header />
-      </slot>
+      <slot name="header"><freeza-header v-model:collapsed="collapsed" /></slot>
       <FreezaTabs />
       <a-layout-content class="freeza-content">
         <router-view></router-view>

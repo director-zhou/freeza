@@ -56,7 +56,7 @@ export default defineComponent({
 
 <style>
 .freeza_menu {
-  height: calc(100vh - 112px);
+  height: calc(100vh - 53px);
   overflow-y: scroll;
 }
 </style>

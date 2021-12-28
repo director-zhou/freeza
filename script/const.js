@@ -3,7 +3,7 @@ const cwd = process.cwd();
 
 const projectList = {
   'vue3-ant-layout': {
-    external: ['vue', /^ant-design-vue/, 'vue-router'],
+    external: ['vue', /^ant-design-vue/, 'vue-router', '@ant-design/icons-vue'],
     formats: ['es', 'cjs'],
     entryFileName: 'index.js'
   },

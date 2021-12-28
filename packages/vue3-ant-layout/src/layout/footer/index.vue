@@ -1,5 +1,5 @@
 <template>
-  <a-layout-footer class="freeza_footer"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
+  <a-layout-footer class="freeza_footer"> Freeza-Vue3-Ant-Layout ©2021 Created by Director-zhou </a-layout-footer>
 </template>
 
 <script>
