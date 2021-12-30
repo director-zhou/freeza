@@ -1,21 +1,20 @@
 {
   "name": "freeza",
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/*"
   ],
   "description": "Pluggable development mode of background management system",
   "scripts": {
     "watch": "yarn clear && yarn build --watch",
-    "build": "node ./script/build.js",
+    "build": "node ./script/build.mjs",
     "lint": "eslint --ext .js,.vue packages",
     "clear": "rimraf ./packages/**/dist/**"
   },
   "keywords": [],
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
@@ -24,7 +23,7 @@
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.2.0",
+    "eslint-plugin-vue": "^8.0.3",
     "minimist": "^1.2.5",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",

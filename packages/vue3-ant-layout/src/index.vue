@@ -11,6 +11,7 @@
       <a-layout-content class="freeza-content">
         <router-view></router-view>
       </a-layout-content>
+
       <slot name="footer">
         <FreezaFooter />
       </slot>
@@ -24,7 +25,6 @@ import { transformMenuList } from './utils/index';
 import { freezaConfig } from './utils/cacheConfig.js';
 import { flatMenuFn } from './utils/index.js';
 import FreezaMenu from './layout/menu/index.vue';
-import FreezaBreadCrumb from './layout/breadcrumb/index.vue';
 import FreezaHeader from './layout/header/index.vue';
 import FreezaFooter from './layout/footer/index.vue';
 import FreezaLogo from './layout/logo/index.vue';
@@ -34,13 +34,13 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'FreezaIndex',
+
   components: {
     [Layout.name]: Layout,
     [Layout.Sider.name]: Layout.Sider,
     [Layout.Content.name]: Layout.Content,
     FreezaMenu,
     FreezaFooter,
-    FreezaBreadCrumb,
     FreezaHeader,
     FreezaLogo,
     FreezaTabs

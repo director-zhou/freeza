@@ -1,5 +1,5 @@
 import minimist from 'minimist';
-import { configuration } from './const.js';
+import { configuration } from './const.mjs';
 import { rollup, watch as rollupWatch } from 'rollup';
 import styles from 'rollup-plugin-styles';
 import vuePlugin from 'rollup-plugin-vue';
@@ -35,6 +35,7 @@ async function startBuild(config) {
 }
 
 if (project) {
+  console.log(1);
 } else {
   Object.keys(configuration).forEach(item => {
     const configList = configuration[item];

@@ -64,7 +64,6 @@ export default defineComponent({
       value => {
         const matchPath = value.length > 0 && value[0].path;
         if (matchPath !== '/' && matchPath !== '/404') {
-          console.log(222);
           const findIndex = panes.value.findIndex(p => {
             return matchPath === p.menuPath;
           });

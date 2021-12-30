@@ -21,6 +21,11 @@ const projectList = {
         entryFileName: 'src/webpack.js'
       }
     }
+  },
+  micro: {
+    external: ['vue', 'qiankun'],
+    formats: ['es', 'cjs'],
+    entryFileName: 'index.js'
   }
 };
 
