@@ -9,7 +9,11 @@
       <slot name="header"><freeza-header v-model:collapsed="collapsed" /></slot>
       <FreezaTabs />
       <a-layout-content class="freeza-content">
-        <router-view></router-view>
+        <router-view v-slot="{ Component }">
+          <keep-alive :include="keepAliveList">
+            <component :is="Component" :key="$route?.matched[0]?.path"></component>
+          </keep-alive>
+        </router-view>
       </a-layout-content>
 
       <slot name="footer">
@@ -57,6 +61,7 @@ export default defineComponent({
     };
 
     return {
+      keepAliveList: ['CARD'],
       collapsed
     };
   }
