@@ -1,15 +1,24 @@
-import Wrap from './src/wrap.vue';
+import wrap from './src/wrap.vue';
+
 export function registerMicro({ router, menuList }) {
   function loopRegister(menuList) {
     menuList.forEach(item => {
-      const { children, menuPath, menuMicro } = item;
+      const { children, menuPath, menuMicroPath } = item;
       if (children && children.length > 0) {
         loopRegister(children);
       } else {
-        if (menuMicro) {
+        if (menuMicroPath) {
           router.addRoute({
             path: menuPath,
-            component: Wrap
+            component: wrap,
+            meta: {
+              _FREEZA_ROUTER_: {
+                menuMicroPath
+              }
+            },
+            props: {
+              entry: menuMicroPath
+            }
           });
         }
       }
