@@ -1,6 +1,6 @@
 import wrap from './src/wrap.vue';
-
-export function registerMicro({ router, menuList }) {
+import modifyPath from './src/qinkun-path.js';
+function registerMicro({ router, menuList }) {
   function loopRegister(menuList) {
     menuList.forEach(item => {
       const { children, menuPath, menuMicroPath } = item;
@@ -26,5 +26,4 @@ export function registerMicro({ router, menuList }) {
   }
   loopRegister(menuList);
 }
-
-// 这里注册一个
+export { wrap, modifyPath, registerMicro };

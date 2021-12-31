@@ -5,12 +5,13 @@ const routes = [];
 
 function loopRoutes(list) {
   list.forEach(item => {
-    const { menuPath, children, menuComponent, menuMicro } = item;
+    const { menuPath, children, menuComponent, menuMicroPath, RouteRecordRaw = {} } = item;
     if (children && children.length > 0) {
       loopRoutes(children);
     } else {
-      if (!menuMicro) {
+      if (!menuMicroPath) {
         routes.push({
+          ...RouteRecordRaw,
           path: menuPath,
           component: menuComponent
         });

@@ -20,7 +20,10 @@ export default defineComponent({
       loadMicroApp({
         name: props.entry,
         entry: props.entry,
-        container: `#${id}`
+        container: `#${id}`,
+        props: {
+          menuList: {}
+        }
       });
     });
     return {
