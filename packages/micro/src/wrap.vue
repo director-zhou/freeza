@@ -39,7 +39,6 @@ export default defineComponent({
     }
 
     const menuList = loop(props.menuList);
-
     onMounted(() => {
       loadMicroApp({
         name: props.entry,

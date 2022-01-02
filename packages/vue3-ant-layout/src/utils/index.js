@@ -48,15 +48,22 @@ export function getKeepAliveList(list) {
 
 export function transformMenuList(list) {
   function loop(list) {
-    list.forEach(item => {
+    return list.map(item => {
       const { children } = item;
       if (children && children.length > 0) {
-        item._FREEZA_SUBMENU_KEY_UUID_ = uuid();
-        loop(children);
+        return {
+          ...item,
+          children: loop(children),
+          _FREEZA_SUBMENU_KEY_UUID_: uuid()
+        };
+      } else {
+        return {
+          ...item
+        };
       }
     });
   }
-  loop(list);
+  return loop(list);
 }
 
 export function uuid() {

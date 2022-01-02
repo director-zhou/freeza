@@ -53,8 +53,8 @@ export default defineComponent({
     const { menuList = [] } = freezaConfig;
     const app = getCurrentInstance();
     const collapsed = ref(false);
-    transformMenuList(menuList);
-    const { flatMenu, keepAliveList } = flatMenuFn(menuList);
+    const transformMeuList = transformMenuList(menuList);
+    const { flatMenu, keepAliveList } = flatMenuFn(transformMeuList);
     keepAliveList.push('FreezaMircoWrap');
     app.appContext.provides.freezaConfig = {
       flatMenu,
