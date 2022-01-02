@@ -1,11 +1,17 @@
 export function flatMenuFn(list) {
   const flatMenu = {};
+  const keepAliveList = [];
   function loop(list, nameList, subMenuKey) {
     list.forEach(item => {
-      const { children, menuPath, menuName, _FREEZA_SUBMENU_KEY_UUID_ } = item;
+      const { children, menuPath, menuName, menuMicroPath, _FREEZA_SUBMENU_KEY_UUID_, RouteRecordRaw = {} } = item;
+      const { meta = {} } = RouteRecordRaw;
+      const { keepAliveName } = meta;
       if (children && children.length > 0) {
         loop(children, [...nameList, menuName], [...subMenuKey, _FREEZA_SUBMENU_KEY_UUID_]);
       } else {
+        if (!window.__POWERED_BY_QIANKUN__ && keepAliveName && !menuMicroPath) {
+          keepAliveList.push(keepAliveName);
+        }
         flatMenu[menuPath] = {
           ...item,
           _FREEZA_META_: {
@@ -17,7 +23,7 @@ export function flatMenuFn(list) {
     });
   }
   loop(list, [], []);
-  return flatMenu;
+  return { keepAliveList, flatMenu };
 }
 
 export function transformMenuList(list) {

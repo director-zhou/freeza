@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
-    brower: true
+    browser: true
   },
   extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'plugin:prettier/recommended'],
   rules: {

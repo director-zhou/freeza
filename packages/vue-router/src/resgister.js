@@ -28,11 +28,15 @@ export function registerRouter(menuList, options = {}) {
     history: createWebHistory(base),
     routes
   });
-  router.beforeEach(() => {
-    NProgress.start();
+  router.beforeEach(to => {
+    if ((!window.__POWERED_BY_QIANKUN__ && !to.meta?._FREEZA_ROUTER_?.menuMicroPath) || window.__POWERED_BY_QIANKUN__) {
+      NProgress.start();
+    }
   });
-  router.afterEach(() => {
-    NProgress.done();
+  router.afterEach(to => {
+    if ((!window.__POWERED_BY_QIANKUN__ && !to.meta?._FREEZA_ROUTER_?.menuMicroPath) || window.__POWERED_BY_QIANKUN__) {
+      NProgress.done();
+    }
   });
   return router;
 }

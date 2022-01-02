@@ -10,7 +10,7 @@
       <FreezaTabs />
       <a-layout-content class="freeza-content">
         <router-view v-slot="{ Component }">
-          <keep-alive :include="['FreezaMircoWrap']">
+          <keep-alive :include="keepAliveList">
             <component :is="Component" :key="$route.meta._FREEZA_ROUTER_?.menuMicroPath || ''"></component>
           </keep-alive>
         </router-view>
@@ -49,20 +49,22 @@ export default defineComponent({
     FreezaLogo,
     FreezaTabs
   },
+
   setup() {
     const { menuList = [] } = freezaConfig;
     const app = getCurrentInstance();
     const collapsed = ref(false);
     transformMenuList(menuList);
-    const flatMenu = flatMenuFn(menuList);
+    const { flatMenu, keepAliveList } = flatMenuFn(menuList);
+    keepAliveList.push('FreezaMircoWrap');
     app.appContext.provides.freezaConfig = {
       flatMenu,
       menuList: freezaConfig.menuList
     };
 
     return {
-      keepAliveList: ['CARD', 'FreezaMircoWrap'],
-      collapsed
+      collapsed,
+      keepAliveList
     };
   }
 });
