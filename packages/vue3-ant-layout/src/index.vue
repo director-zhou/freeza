@@ -15,7 +15,6 @@
           </keep-alive>
         </router-view>
       </a-layout-content>
-
       <slot name="footer">
         <FreezaFooter />
       </slot>

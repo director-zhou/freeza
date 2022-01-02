@@ -26,6 +26,26 @@ export function flatMenuFn(list) {
   return { keepAliveList, flatMenu };
 }
 
+export function getKeepAliveList(list) {
+  const keepAliveList = [];
+  function loop(list) {
+    list.forEach(item => {
+      const { children, menuOwn, RouteRecordRaw = {} } = item;
+      const { meta = {} } = RouteRecordRaw;
+      const { keepAliveName } = meta;
+      if (children && children.length > 0) {
+        loop(children);
+      } else {
+        if (menuOwn && keepAliveName) {
+          keepAliveList.push(keepAliveName);
+        }
+      }
+    });
+  }
+  loop(list);
+  return keepAliveList;
+}
+
 export function transformMenuList(list) {
   function loop(list) {
     list.forEach(item => {

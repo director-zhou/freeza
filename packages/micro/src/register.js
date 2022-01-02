@@ -17,6 +17,7 @@ export default function registerMicro({ router, menuList }) {
               }
             },
             props: {
+              menuList,
               entry: menuMicroPath
             }
           });

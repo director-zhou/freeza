@@ -5,11 +5,11 @@ const routes = [];
 
 function loopRoutes(list) {
   list.forEach(item => {
-    const { menuPath, children, menuComponent, menuMicroPath, RouteRecordRaw = {} } = item;
+    const { menuPath, children, menuComponent, menuMicroPath, RouteRecordRaw = {}, menuOwn } = item;
     if (children && children.length > 0) {
       loopRoutes(children);
     } else {
-      if (!menuMicroPath) {
+      if ((!window.__POWERED_BY_QIANKUN__ && !menuMicroPath) || (window.__POWERED_BY_QIANKUN__ && menuOwn)) {
         routes.push({
           ...RouteRecordRaw,
           path: menuPath,
