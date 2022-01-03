@@ -4,6 +4,7 @@
 
 <script>
 import { defineComponent, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { loadMicroApp } from 'qiankun';
 import { uuid } from './utils/index.js';
 export default defineComponent({
@@ -20,7 +21,7 @@ export default defineComponent({
   },
   setup(props) {
     const id = `freeza${uuid()}`;
-
+    const router = useRouter();
     function loop(list) {
       return list.map(item => {
         const { children, menuMicroPath } = item;
@@ -45,7 +46,8 @@ export default defineComponent({
         entry: props.entry,
         container: `#${id}`,
         props: {
-          menuList
+          menuList,
+          base: router.options.history.base
         }
       });
     });
