@@ -7,7 +7,7 @@
   "description": "Pluggable development mode of background management system",
   "scripts": {
     "watch": "yarn clear && yarn build --watch",
-    "build": "node ./script/build.mjs",
+    "build": "yarn clear && node ./script/build.mjs",
     "lint": "eslint --ext .js,.vue packages",
     "clear": "rimraf ./packages/**/dist/**"
   },

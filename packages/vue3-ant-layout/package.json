@@ -1,6 +1,6 @@
 {
   "name": "@freeza/vue3-ant-layout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "fast ui",
   "module": "dist/index.es.js",
   "main": "dist/index.cjs.js",

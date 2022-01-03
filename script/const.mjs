@@ -23,7 +23,7 @@ const projectList = {
     }
   },
   micro: {
-    external: ['vue', 'qiankun'],
+    external: ['vue', 'qiankun', 'vue-router'],
     formats: ['es', 'cjs'],
     entryFileName: 'index.js'
   }
